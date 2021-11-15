@@ -4,7 +4,7 @@ public class Square {
 
 	private int x, y;
 	private int type;
-	private final int BLANK = 0, SNAKE = 1, FOOD = 2;
+	public static final int BLANK = 0, SNAKE = 1, FOOD = 2;
 	
 	Square (int x, int y) {
 		this.x = x;
