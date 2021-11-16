@@ -1,8 +1,11 @@
 package game;
-//import java.util.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.lang.Math;
 
-public class GameBoard {
+import javax.swing.JPanel;
+
+public class GameBoard extends JPanel implements ActionListener {
 
 	private Square[][] board;
 	private Snake snek = new Snake();
@@ -50,6 +53,10 @@ public class GameBoard {
 	}
 	
 	public static void main(String[] args) {
+		
+	}
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
 		
 	}
 	
