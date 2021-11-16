@@ -1,6 +1,7 @@
 package game;
 import java.util.*;
 
+
 public class Snake {
 	private LinkedList<Square> snake;
 	private int direction;
