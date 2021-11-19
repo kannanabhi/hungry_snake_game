@@ -5,15 +5,12 @@ import java.util.*;
 public class Snake {
 	private LinkedList<Square> snake;
 	private int direction;
-	final int NORTH = 0,
-			EAST = 1,
-			SOUTH = 2,
-			WEST = 3;
+	public static final int NORTH = 0, EAST = 1, SOUTH = 2, WEST = 3;
 	
 	Snake() {
 		snake = new LinkedList<Square>();
-		Square head = new Square(0,2);
-		Square t1 = new Square(0,1);
+		Square head = new Square(2,0);
+		Square t1 = new Square(1,0);
 		Square t2 = new Square(0,0);
 		head.makeSNAKE();
 		t1.makeSNAKE();
@@ -24,44 +21,51 @@ public class Snake {
 		direction = EAST;
 	}
 
-	
-	public boolean hitBoundary(int n) {
+	private boolean hitBoundary(int n) {
 		boolean hit = false;
-		Square head = snake.get(0);
+		Square head = getHead();
 		if (direction == EAST) {
-			hit = head.getY() == n-1;
-		}
-		else if (direction == SOUTH) {
 			hit = head.getX() == n-1;
 		}
+		else if (direction == SOUTH) {
+			hit = head.getY() == n-1;
+		}
 		else if (direction == NORTH)  {
-			hit = head.getX() == 0;
+			hit = head.getY() == 0;
 		}
 		else {
-			hit = head.getY() == 0;
+			hit = head.getX() == 0;
 		}
 		return hit;
 	}
 
-	public boolean hitItself() {
+	private boolean hitItself() {
 		boolean hit = false;
-		Square head = snake.get(0);
+		Square head = getHead();
 		int x_death, y_death;
 		if (direction == EAST) {
-			x_death = head.getX();
-			y_death = head.getY()+1;
-		}
-		else if (direction == SOUTH) {
+//			x_death = head.getX();
+//			y_death = head.getY()+1;
 			x_death = head.getX()+1;
 			y_death = head.getY();
 		}
-		else if (direction == NORTH)  {
-			x_death = head.getX()-1;
-			y_death = head.getY();
+		else if (direction == SOUTH) {
+//			x_death = head.getX()+1;
+//			y_death = head.getY();
+			x_death = head.getX();
+			y_death = head.getY()+1;
 		}
-		else {
+		else if (direction == NORTH)  {
+//			x_death = head.getX()-1;
+//			y_death = head.getY();
 			x_death = head.getX();
 			y_death = head.getY()-1;
+		}
+		else {
+//			x_death = head.getX();
+//			y_death = head.getY()-1;
+			x_death = head.getX()-1;
+			y_death = head.getY();
 		}
 		for (int i = 1; i < snake.size(); i++) {
 			if (snake.get(i).getX() == x_death && snake.get(i).getY() == y_death) {
@@ -72,22 +76,47 @@ public class Snake {
 		return hit;
 	}
 		
+	public boolean gameOver(int n) {
+		return hitBoundary(n) || hitItself();
+	}
+	
 	public void moveOne() {
-		
-		for (Square sq : snake) {
-			if (direction == EAST) {
-				
-			}
-			else if (direction == SOUTH) {
-				
-			}
-			else if (direction == WEST) {
-				
-			}
-			else {
-				
-			}
+		snake.removeLast();
+		Square head = this.getHead();
+		if (direction == NORTH) {
+			snake.addFirst(new Square(head.getX(), head.getY()-1));
+		}
+		else if (direction == EAST) {
+			snake.addFirst(new Square(head.getX()+1, head.getY()));
+		}
+		else if (direction == SOUTH) {
+			snake.addFirst(new Square(head.getX(), head.getY()+1));
+		}
+		else {
+			snake.addFirst(new Square(head.getX()-1, head.getY()));
+		}		
+	}
+	
+	public void growOne() {
+		Square head = this.getHead();
+		if (direction == NORTH) {
+			snake.addFirst(new Square(head.getX(), head.getY()-1));
+		}
+		else if (direction == EAST) {
+			snake.addFirst(new Square(head.getX()+1, head.getY()));
+		}
+		else if (direction == SOUTH) {
+			snake.addFirst(new Square(head.getX(), head.getY()+1));
+		}
+		else {
+			snake.addFirst(new Square(head.getX()-1, head.getY()));
 		}
 	}
+	
+	public int getDirection() { return direction; }
+	public void setDirection(int direction) { this.direction = direction; }
+	public LinkedList<Square> getSnake() { return snake; }
+	public Square getHead() { return snake.getFirst(); }
+	public int getLength() { return snake.size(); }
 	
 }

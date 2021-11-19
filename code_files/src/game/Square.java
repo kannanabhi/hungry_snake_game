@@ -12,38 +12,12 @@ public class Square {
 		this.type = BLANK;
 	}
 	
-	public int getX() {
-		return this.x;
-	}
-	public int getY() {
-		return this.y;
-	}
+	public int getX() { return this.x; }
+	public int getY() { return this.y; }
 	
-	public void makeBLANK() {
-		type = BLANK;
-	}
-	public void makeSNAKE() {
-		type = SNAKE;
-	}
-	public void makeFOOD() {
-		type = FOOD;
-	}
-	public int getType() {
-		return this.type;
-	}
-	
-	public void moveEast() {
-		y++;
-	}
-	public void moveWest() {
-		y--;
-	}
-	public void moveNorth() {
-		x--;
-	}
-	public void moveSouth() {
-		x++;
-	}
-	
+	public void makeBLANK() { type = BLANK; }
+	public void makeSNAKE() { type = SNAKE;	}
+	public void makeFOOD() { type = FOOD; }
+	public int getType() { return this.type; }
 	
 }

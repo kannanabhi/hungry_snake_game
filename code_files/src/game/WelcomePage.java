@@ -22,9 +22,10 @@ public class WelcomePage extends JPanel implements ActionListener {
 	
 	public WelcomePage() {
 		JFrame frame = new JFrame();
-
+		//frame.setLocationRelativeTo(null);
+		
 		JPanel panel = new JPanel();
-		panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
+		panel.setBorder(BorderFactory.createEmptyBorder(300,300,300,300));
 		panel.setLayout(new GridLayout(0,1));
 		panel.setBackground(Color.BLACK);
 		
@@ -45,11 +46,11 @@ public class WelcomePage extends JPanel implements ActionListener {
         textField2 = new JPasswordField(15); 
         
         b1 = new JButton("SUBMIT"); 
-        panel.add(userLabel);    //set username label to panel  
-        panel.add(textField1);   //set text field to panel  
-        panel.add(passLabel);    //set password label to panel  
-        panel.add(textField2);   //set text field to panel  
-        panel.add(b1);           //set button to panel  
+        panel.add(userLabel);      
+        panel.add(textField1);     
+        panel.add(passLabel);      
+        panel.add(textField2);     
+        panel.add(b1);             
 		
         b1.addActionListener(this); 
         
@@ -62,24 +63,18 @@ public class WelcomePage extends JPanel implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		String userValue = textField1.getText();        //get user entered username from the textField1  
-        String passValue = textField2.getText();        //get user entered pasword from the textField2  
+		String userValue = textField1.getText();          
+        String passValue = textField2.getText();          
         
-        if (userValue.equals("test1@gmail.com") && passValue.equals("test")) {  //if authentic, navigate user to a new page  
-            
-            //create instance of the NewPage  
-            SuccessFullLogin page = new SuccessFullLogin();  
-              
-            //make page visible to the user  
-            page.setVisible(true);  
-              
-            //create a welcome label and set it to the new page  
+        //TODO: connect to LeaderBoard class to verify credentials
+        if (userValue.equals("") && passValue.equals("")) {  
+            SuccessfullLogin page = new SuccessfullLogin();  
+    
             JLabel wel_label = new JLabel("Welcome: "+userValue);  
             page.getContentPane().add(wel_label);  
         }  
         else{  
-            //show error message  
+            //TODO: throw exception  
             System.out.println("Please enter valid username and password");  
         }  
 	}
