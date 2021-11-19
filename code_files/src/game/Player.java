@@ -2,11 +2,21 @@ package game;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class Player {
 	private String userID, userPswd;
 	private int highscore;
-	
+
+	public Player(String userID, String userPswd) {
+		this.userID = userID;
+		this.userPswd = userPswd;
+		System.out.println("player 1st constructor");
+	}
+
+	//used for signing up
 	public Player(String userID, String userPswd, int highscore) {
 		this.userID = userID;
 		this.userPswd = userPswd;
@@ -20,11 +30,24 @@ public class Player {
 			System.out.println(e);
 		}
 	}
-	
-//	public boolean verifyCred(String userPswd) {
-//		return userPswd.equals(this.userPswd);
-//	}
-//	public String getUserID() { return userID; }
-	
-	 
+
+	public boolean authenticate() {
+		boolean flag = false;
+		Scanner sc;
+		try {
+			sc = new Scanner(new File("D:/pilani_files/3-1/Object oriented programming/oops_project/code_files/src/game/database.txt"));
+			while (sc.hasNextLine()) {
+				String ln = sc.nextLine();
+				String[] arr = ln.split("\\s");
+				if (arr[0].equals(userID) && arr[1].equals(userPswd)) {
+					flag = true;
+					break;
+				}
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		return flag;
+	}
 }

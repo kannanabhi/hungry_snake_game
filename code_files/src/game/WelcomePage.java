@@ -66,8 +66,10 @@ public class WelcomePage extends JPanel implements ActionListener {
 		String userValue = textField1.getText();          
         String passValue = textField2.getText();          
         
+        Player p = new Player(userValue, passValue, 0);
+        
         //TODO: connect to LeaderBoard class to verify credentials
-        if (userValue.equals("") && passValue.equals("")) {  
+        if (p.authenticate() == true) {  
             SuccessfullLogin page = new SuccessfullLogin();  
     
             JLabel wel_label = new JLabel("Welcome: "+userValue);  
