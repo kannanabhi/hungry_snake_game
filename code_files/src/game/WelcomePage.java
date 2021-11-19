@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.BorderFactory;
 import javax.swing.JTextField;
+
 import javax.swing.JPasswordField;
 
 public class WelcomePage extends JPanel implements ActionListener {
@@ -20,11 +21,14 @@ public class WelcomePage extends JPanel implements ActionListener {
     JLabel userLabel, passLabel;  
     final JTextField  textField1, textField2;  
 	
+    JFrame frame;
+    JPanel panel;
+    
 	public WelcomePage() {
-		JFrame frame = new JFrame();
+		frame = new JFrame();
 		//frame.setLocationRelativeTo(null);
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setBorder(BorderFactory.createEmptyBorder(300,300,300,300));
 		panel.setLayout(new GridLayout(0,1));
 		panel.setBackground(Color.BLACK);
@@ -50,7 +54,12 @@ public class WelcomePage extends JPanel implements ActionListener {
         panel.add(textField1);     
         panel.add(passLabel);      
         panel.add(textField2);     
-        panel.add(b1);             
+        panel.add(b1); 
+        
+        JButton signup = new JButton("SIGNUP");
+        panel.add(signup);
+        signup.addActionListener(new SignUp());
+        
 		
         b1.addActionListener(this); 
         
@@ -66,7 +75,7 @@ public class WelcomePage extends JPanel implements ActionListener {
 		String userValue = textField1.getText();          
         String passValue = textField2.getText();          
         
-        Player p = new Player(userValue, passValue, 0);
+        Player p = new Player(userValue, passValue);
         
         //TODO: connect to LeaderBoard class to verify credentials
         if (p.authenticate() == true) {  
@@ -77,8 +86,70 @@ public class WelcomePage extends JPanel implements ActionListener {
         }  
         else{  
             //TODO: throw exception  
-            System.out.println("Please enter valid username and password");  
+//            System.out.println("Pleasevalid username and password"); 
+        	JLabel l = new JLabel("Please enter valid username and password");
+        	l.setForeground(Color.WHITE);
+        	panel.add(l);
+        	
+        	frame.add(panel);
+        	frame.setVisible(true);
         }  
+	}
+	
+	private class SignUp extends JPanel implements ActionListener{
+		public void actionPerformed(ActionEvent arg0) {
+			frame = new JFrame();
+			
+			JPanel panel = new JPanel();
+			panel.setBorder(BorderFactory.createEmptyBorder(300,300,300,300));
+			panel.setLayout(new GridLayout(0,1));
+			panel.setBackground(Color.BLACK);
+			
+			JLabel label = new JLabel("Signup Page");
+			label.setForeground(Color.WHITE);
+			panel.add(label);
+			
+			userLabel = new JLabel();  
+	        userLabel.setText("Username");
+	        userLabel.setForeground(Color.WHITE);
+	        
+	        JTextField textField1 = new JTextField(15);
+	        
+	        passLabel = new JLabel();  
+	        passLabel.setText("Password");
+	        passLabel.setForeground(Color.WHITE);
+	        
+	        JTextField textField2 = new JPasswordField(15); 
+	        
+	        b1 = new JButton("SUBMIT"); 
+	        b1.addActionListener(new RegisterPlayer(textField1, textField2));
+	        panel.add(userLabel);      
+	        panel.add(textField1);     
+	        panel.add(passLabel);      
+	        panel.add(textField2);     
+	        panel.add(b1); 
+	        
+	        frame.add(panel, BorderLayout.CENTER);
+			frame.setSize(1600, 1600);
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.setTitle("SIGNUP");
+			frame.pack();
+			frame.setVisible(true);
+		}
+		
+		private class RegisterPlayer implements ActionListener {
+			JTextField t1, t2;
+			public RegisterPlayer(JTextField t1, JTextField t2) {
+				this.t1 = t1;
+				this.t2 = t2;
+			}
+			public void actionPerformed(ActionEvent arg0) {
+				String userID = t1.getText();
+				String pswd = t2.getText();
+				Player p = new Player(userID, pswd, 0);
+			}
+		}
+	
 	}
 	
 }
