@@ -8,7 +8,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class Player {
+public class Player implements Comparable<Player> {
 	private String userID, userPswd;
 	private int highscore;
 
@@ -62,4 +62,9 @@ public class Player {
 		
 		return flag;
 	}
+	
+	public int compareTo(Player p) {
+		return 0;
+	}
+
 }

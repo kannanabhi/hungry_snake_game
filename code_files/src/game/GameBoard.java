@@ -124,6 +124,7 @@ public class GameBoard extends JPanel implements ActionListener{
     		Toolkit.getDefaultToolkit().sync();
     	} else {
     		gameOver(g);
+    		GameAdmin.updateScore(getScore());
     	}
     }
     

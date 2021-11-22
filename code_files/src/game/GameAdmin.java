@@ -14,17 +14,19 @@ import javax.swing.JTextField;
 
 import javax.swing.JPasswordField;
 
-public class WelcomePage extends JPanel implements ActionListener {
+public class GameAdmin extends JPanel implements ActionListener {
 
 	JButton b1;  
     JPanel newPanel;  
     JLabel userLabel, passLabel;  
     final JTextField  textField1, textField2;  
-	
+    static String userValue;
+	//converted to static
+    
     JFrame frame;
     JPanel panel;
     
-	public WelcomePage() {
+	public GameAdmin() {
 		frame = new JFrame();
 		//frame.setLocationRelativeTo(null);
 		
@@ -68,7 +70,7 @@ public class WelcomePage extends JPanel implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent arg0) {
-		String userValue = textField1.getText();          
+		userValue = textField1.getText();          
         String passValue = textField2.getText();          
         
         Player p = new Player(userValue, passValue);
@@ -145,7 +147,16 @@ public class WelcomePage extends JPanel implements ActionListener {
 				Player p = new Player(userID, pswd, 0);
 			}
 		}
+	}
 	
+	public static void updateScore(int newScore) {
+		//use Leaderboard method
+//		System.out.println(newScore);
+		Leaderboard.updateScore(userValue, newScore);
+	}
+	public static void displayLeaderboard() {
+		//TODO: implement gui
+		Leaderboard.displayScore();
 	}
 	
 }
