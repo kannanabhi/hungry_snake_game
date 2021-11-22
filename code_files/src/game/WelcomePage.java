@@ -127,7 +127,7 @@ public class WelcomePage extends JPanel implements ActionListener {
 	        
 	        frame.add(panel, BorderLayout.CENTER);
 			frame.setSize(1600, 1600);
-			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.setTitle("SIGNUP");
 			frame.pack();
 			frame.setVisible(true);
