@@ -32,7 +32,7 @@ public class GameBoard extends JPanel implements ActionListener{
     Snake snek;
     
     public GameBoard() {
-    	this(30);
+    	this(30, 140);
     }
     public GameBoard(int size) {
     	this(size, 140);
@@ -45,7 +45,7 @@ public class GameBoard extends JPanel implements ActionListener{
     	B_WIDTH = DOT_SIZE * size;
     	B_HEIGHT = DOT_SIZE * size;
     	ALL_DOTS = size*size;
-    	System.out.println("Gameboard initial size: " + ALL_DOTS);
+//    	System.out.println("Gameboard initial size: " + ALL_DOTS);
     	
     	board = new Square[size][size];
     	for (int i = 0; i < size; i++) {
@@ -67,16 +67,17 @@ public class GameBoard extends JPanel implements ActionListener{
     	setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
     	loadImages();
     	initializeGame();
+//    	setVisible(true);
     }
     
     private void loadImages() {
-    	ImageIcon iid = new ImageIcon("src/game/dot.png");
+    	ImageIcon iid = new ImageIcon("code_files/src/game/dot.png");
         ball = iid.getImage();
 
-        ImageIcon iia = new ImageIcon("src/game/apple.png");
+        ImageIcon iia = new ImageIcon("code_files/src/game/apple.png");
         apple = iia.getImage();
 
-        ImageIcon iih = new ImageIcon("src/game/head.png");
+        ImageIcon iih = new ImageIcon("code_files/src/game/head.png");
         head = iih.getImage();
     }
     
@@ -106,6 +107,7 @@ public class GameBoard extends JPanel implements ActionListener{
     
     private void doDrawing(Graphics g) {
     	if (gameOver == false) {
+//    		System.out.println("game over: " + gameOver);
     		g.drawImage(apple, x*DOT_SIZE, y*DOT_SIZE, this);
     		
     		LinkedList<Square> arr = snek.getSnake();
@@ -174,7 +176,7 @@ public class GameBoard extends JPanel implements ActionListener{
     		
     		if ((key == KeyEvent.VK_LEFT) && (direction != Snake.EAST)) {
                 snek.setDirection(Snake.WEST);
-                System.out.println("left + " + snek.getDirection());
+//                System.out.println("left + " + snek.getDirection());
             }
 
     		else if ((key == KeyEvent.VK_RIGHT) && (direction != Snake.WEST)) {
@@ -187,7 +189,7 @@ public class GameBoard extends JPanel implements ActionListener{
     		
     		else if ((key == KeyEvent.VK_DOWN) && (direction != Snake.NORTH)) {
     			snek.setDirection(Snake.SOUTH);
-    			System.out.println("down");
+//    			System.out.println("down");
             }
     		
     	}

@@ -37,14 +37,12 @@ public class WelcomePage extends JPanel implements ActionListener {
 		label.setForeground(Color.WHITE);
 		panel.add(label);
 		
-		userLabel = new JLabel();  
-        userLabel.setText("Username");
+		userLabel = new JLabel("Username");  
         userLabel.setForeground(Color.WHITE);
         
         textField1 = new JTextField(15);
         
-        passLabel = new JLabel();  
-        passLabel.setText("Password");
+        passLabel = new JLabel("Password");  
         passLabel.setForeground(Color.WHITE);
         
         textField2 = new JPasswordField(15); 
@@ -55,13 +53,11 @@ public class WelcomePage extends JPanel implements ActionListener {
         panel.add(passLabel);      
         panel.add(textField2);     
         panel.add(b1); 
+        b1.addActionListener(this);
         
         JButton signup = new JButton("SIGNUP");
         panel.add(signup);
         signup.addActionListener(new SignUp());
-        
-		
-        b1.addActionListener(this); 
         
 		frame.add(panel, BorderLayout.CENTER);
 		frame.setSize(1600, 1600);
@@ -79,10 +75,10 @@ public class WelcomePage extends JPanel implements ActionListener {
         
         //TODO: connect to LeaderBoard class to verify credentials
         if (p.authenticate() == true) {  
-            SuccessfullLogin page = new SuccessfullLogin();  
+            SuccessfullLogin page = new SuccessfullLogin(userValue);  
     
-            JLabel wel_label = new JLabel("Welcome: "+userValue);  
-            page.getContentPane().add(wel_label);  
+//            JLabel wel_label = new JLabel("Welcome: "+userValue);  
+//            page.getContentPane().add(wel_label);  
         }  
         else{  
             //TODO: throw exception  

@@ -15,7 +15,7 @@ public class SuccessfullLogin extends JFrame implements ActionListener{
 	
 	private int size = 30, speed = 140;
 	
-	public SuccessfullLogin() {
+	public SuccessfullLogin(String userValue) {
 		JFrame frame = new JFrame();
 		//frame.setLocationRelativeTo(null);
 
@@ -23,6 +23,9 @@ public class SuccessfullLogin extends JFrame implements ActionListener{
 		panel.setBorder(BorderFactory.createEmptyBorder(300,300,300,300));
 		panel.setLayout(new GridLayout(0,1));
 
+		JLabel wel_label = new JLabel("welcome " + userValue);
+		panel.add(wel_label);
+		
 		JButton button1 = new JButton("PLAY");
 		JButton button2 = new JButton("CONTROLS");
 		
