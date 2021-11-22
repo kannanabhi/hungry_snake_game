@@ -43,7 +43,8 @@ public class Leaderboard {
 		
 	}
 	
-	public static ArrayList<Player> displayScore() {
+	public static ArrayList<String> displayScore() {
+		ArrayList<String> ans = new ArrayList<String>();
 		FileReader fr;
 		try {
 			fr = new FileReader("D:/pilani_files/3-1/Object oriented programming/oops_project/code_files/src/game/database.txt");
@@ -51,11 +52,12 @@ public class Leaderboard {
 			String line;
 			while ((line = file.readLine()) != null) {
 				String[] arr = line.split("\\s");
-				System.out.println(arr[0] + " " + arr[2]);
+				ans.add(arr[0] + "--" + arr[2] + "\n");
+				System.out.println(arr[0] + "--" + arr[2] + "\n");
 			}
 		} catch (Exception e) {
 			System.out.println("prob displaying file");
 		}
-		return null;
+		return ans;
 	}
 }

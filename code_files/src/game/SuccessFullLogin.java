@@ -121,7 +121,7 @@ public class SuccessfullLogin extends JFrame implements ActionListener{
 		setTitle("Snake");
 		setLocationRelativeTo(null);
 		// TODO add option to play again
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 	}
 }

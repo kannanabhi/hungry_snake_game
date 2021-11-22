@@ -27,8 +27,8 @@ public class Player implements Comparable<Player> {
 		this.highscore = highscore;
 		try {
 			FileWriter fw = new FileWriter("D:/pilani_files/3-1/Object oriented programming/oops_project/code_files/src/game/database.txt", true);
-			BufferedWriter bw= new BufferedWriter(fw);
-			PrintWriter pw=new PrintWriter(bw);
+			BufferedWriter bw = new BufferedWriter(fw);
+			PrintWriter pw = new PrintWriter(bw);
 			
 			String in = userID + " " + userPswd + " " + Integer.toString(highscore);
 //			fw.write(in);

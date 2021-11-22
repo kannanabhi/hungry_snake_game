@@ -15,6 +15,7 @@ import java.util.LinkedList;
 
 import javax.swing.Timer;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class GameBoard extends JPanel implements ActionListener{
@@ -67,7 +68,6 @@ public class GameBoard extends JPanel implements ActionListener{
     	setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
     	loadImages();
     	initializeGame();
-//    	setVisible(true);
     }
     
     private void loadImages() {
@@ -124,7 +124,7 @@ public class GameBoard extends JPanel implements ActionListener{
     		Toolkit.getDefaultToolkit().sync();
     	} else {
     		gameOver(g);
-    		GameAdmin.updateScore(getScore());
+    		GameAdmin.updateScore(getScore());            
     	}
     }
     
@@ -144,7 +144,7 @@ public class GameBoard extends JPanel implements ActionListener{
         g.drawString(msg, (B_WIDTH - metr.stringWidth(msg)) / 2, B_HEIGHT / 2);
         g.drawString(scoreMsg, (B_WIDTH - metr.stringWidth(scoreMsg)) / 2, B_HEIGHT / 2 + 100);
     }
-    
+        
     private void checkIfEaten() {
     	Square head = snek.getHead();
     	if (x == head.getX() && y == head.getY()) {

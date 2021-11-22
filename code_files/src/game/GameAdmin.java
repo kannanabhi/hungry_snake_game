@@ -1,4 +1,6 @@
 package game;
+import java.util.ArrayList;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -11,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.BorderFactory;
 import javax.swing.JTextField;
-
 import javax.swing.JPasswordField;
 
 public class GameAdmin extends JPanel implements ActionListener {
@@ -61,6 +62,10 @@ public class GameAdmin extends JPanel implements ActionListener {
         panel.add(signup);
         signup.addActionListener(new SignUp());
         
+        JButton btn = new JButton("DISPLAY LEADERBOARD");
+        panel.add(btn);
+        btn.addActionListener(new ShowLeaderboard());
+        
 		frame.add(panel, BorderLayout.CENTER);
 		frame.setSize(1600, 1600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -68,6 +73,12 @@ public class GameAdmin extends JPanel implements ActionListener {
 		frame.pack();
 		frame.setVisible(true);
 	}
+	
+    private class ShowLeaderboard implements ActionListener {
+    	public void actionPerformed(ActionEvent arg0) {
+    		GameAdmin.displayLeaderboard();
+    	}
+    }
 	
 	public void actionPerformed(ActionEvent arg0) {
 		userValue = textField1.getText();          
@@ -156,7 +167,20 @@ public class GameAdmin extends JPanel implements ActionListener {
 	}
 	public static void displayLeaderboard() {
 		//TODO: implement gui
-		Leaderboard.displayScore();
+		ArrayList<String> ans = Leaderboard.displayScore();
+		JFrame f = new JFrame();
+		JPanel p = new JPanel();
+		for (String s : ans) {
+			JLabel l = new JLabel(s);
+			p.add(l);
+		}
+		
+		f.add(p, BorderLayout.CENTER);
+		f.setSize(400, 600);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setTitle("SIGNUP");
+		f.pack();
+		f.setVisible(true);
 	}
 	
 }
