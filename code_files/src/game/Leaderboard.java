@@ -7,7 +7,6 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 public class Leaderboard {
-	//for updating score
 	public static void updateScore(String userID, int score, int size) {
 		FileReader fr;
 		try {

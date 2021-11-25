@@ -25,7 +25,6 @@ public class GameAdmin extends JPanel implements ActionListener {
     final JTextField  textField1, textField2;  
     static String userValue;
     static int board_size;
-	//converted to static
     
     JFrame frame;
     JPanel panel;
@@ -81,17 +80,10 @@ public class GameAdmin extends JPanel implements ActionListener {
         String passValue = textField2.getText();          
         
         Player p = new Player(userValue, passValue, false);
-        
-        //TODO: connect to LeaderBoard class to verify credentials
         if (p.authenticate() == true) {  
             SuccessfullLogin page = new SuccessfullLogin(userValue);  
-    
-//            JLabel wel_label = new JLabel("Welcome: "+userValue);  
-//            page.getContentPane().add(wel_label);  
         }  
         else{  
-            //TODO: throw exception  
-//            System.out.println("Pleasevalid username and password"); 
         	JLabel l = new JLabel("Please enter valid username and password");
         	l.setForeground(Color.WHITE);
         	panel.add(l);
@@ -143,7 +135,6 @@ public class GameAdmin extends JPanel implements ActionListener {
     		
     		f1.add(p1, BorderLayout.CENTER);
     		f1.setSize(400, 600);
-//    		f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     		f1.setTitle("Leaderboard Size Selection");
     		f1.pack();
     		f1.setVisible(true);    		
@@ -162,7 +153,6 @@ public class GameAdmin extends JPanel implements ActionListener {
         		
         		f.add(p, BorderLayout.CENTER);
         		f.setSize(400, 600);
-        		//f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         		f.setTitle("Leaderboard Display");
         		f.pack();
         		f.setVisible(true);
@@ -252,8 +242,6 @@ public class GameAdmin extends JPanel implements ActionListener {
 	}
 	
 	public static void updateScore(int newScore, int size) {
-		//use Leaderboard method
-//		System.out.println(newScore);
 		Leaderboard.updateScore(userValue, newScore, size);
 	}
 }

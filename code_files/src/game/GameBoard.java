@@ -46,7 +46,7 @@ public class GameBoard extends JPanel implements ActionListener{
     	B_WIDTH = DOT_SIZE * size;
     	B_HEIGHT = DOT_SIZE * size;
     	ALL_DOTS = size*size;
-//    	System.out.println("Gameboard initial size: " + ALL_DOTS);
+    	System.out.println("Gameboard initial size: " + ALL_DOTS);
     	
     	board = new Square[size][size];
     	for (int i = 0; i < size; i++) {
@@ -55,7 +55,6 @@ public class GameBoard extends JPanel implements ActionListener{
     		}
     	} 
     	
-    	//implement GUI
     	initializeBoard();
     }
     
@@ -107,7 +106,6 @@ public class GameBoard extends JPanel implements ActionListener{
     
     private void doDrawing(Graphics g) {
     	if (gameOver == false) {
-//    		System.out.println("game over: " + gameOver);
     		g.drawImage(apple, x*DOT_SIZE, y*DOT_SIZE, this);
     		
     		LinkedList<Square> arr = snek.getSnake();
@@ -129,7 +127,7 @@ public class GameBoard extends JPanel implements ActionListener{
     }
     
     private int getScore() {
-    	int score = (snek.getLength() - 3) * ( 70 / size ) * ( 140 / speed);
+    	int score = (snek.getLength() - 3) * ( 70 / size ) * ( 250 / speed);
     	return score;
     }
     
@@ -169,7 +167,7 @@ public class GameBoard extends JPanel implements ActionListener{
     	}
     	repaint();
     }
-    
+        
     private class TAdapter extends KeyAdapter {
     	public void keyPressed(KeyEvent arg0) {
     		int key = arg0.getKeyCode();
@@ -177,7 +175,6 @@ public class GameBoard extends JPanel implements ActionListener{
     		
     		if ((key == KeyEvent.VK_LEFT) && (direction != Snake.EAST)) {
                 snek.setDirection(Snake.WEST);
-//                System.out.println("left + " + snek.getDirection());
             }
 
     		else if ((key == KeyEvent.VK_RIGHT) && (direction != Snake.WEST)) {
@@ -190,7 +187,7 @@ public class GameBoard extends JPanel implements ActionListener{
     		
     		else if ((key == KeyEvent.VK_DOWN) && (direction != Snake.NORTH)) {
     			snek.setDirection(Snake.SOUTH);
-//    			System.out.println("down");
+    			System.out.println("down");
             }
     		
     	}

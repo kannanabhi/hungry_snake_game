@@ -44,26 +44,18 @@ public class Snake {
 		Square head = getHead();
 		int x_death, y_death;
 		if (direction == EAST) {
-//			x_death = head.getX();
-//			y_death = head.getY()+1;
 			x_death = head.getX()+1;
 			y_death = head.getY();
 		}
 		else if (direction == SOUTH) {
-//			x_death = head.getX()+1;
-//			y_death = head.getY();
 			x_death = head.getX();
 			y_death = head.getY()+1;
 		}
 		else if (direction == NORTH)  {
-//			x_death = head.getX()-1;
-//			y_death = head.getY();
 			x_death = head.getX();
 			y_death = head.getY()-1;
 		}
 		else {
-//			x_death = head.getX();
-//			y_death = head.getY()-1;
 			x_death = head.getX()-1;
 			y_death = head.getY();
 		}
@@ -94,7 +86,7 @@ public class Snake {
 		}
 		else {
 			snake.addFirst(new Square(head.getX()-1, head.getY()));
-		}		
+		}
 	}
 	
 	public void growOne() {

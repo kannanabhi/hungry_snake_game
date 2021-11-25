@@ -19,7 +19,6 @@ public class SuccessfullLogin extends JFrame implements ActionListener{
 	
 	public SuccessfullLogin(String userValue) {
 		JFrame frame = new JFrame();
-		//frame.setLocationRelativeTo(null);
 
 		JPanel panel = new JPanel();
 		panel.setBorder(BorderFactory.createEmptyBorder(300,300,300,300));
@@ -29,7 +28,6 @@ public class SuccessfullLogin extends JFrame implements ActionListener{
 		panel.add(wel_label);
 		
 		JButton button1 = new JButton("PLAY");
-		JButton button2 = new JButton("CONTROLS");
 		
 		button1.addActionListener(this);
 		
@@ -84,11 +82,20 @@ public class SuccessfullLogin extends JFrame implements ActionListener{
 		slow.addActionListener(new slow());
 		
 		frame.add(panel, BorderLayout.CENTER);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("HOMEPAGE");
 		frame.pack();
 		frame.setVisible(true);
 	}
+
+	public void actionPerformed(ActionEvent arg0) {
+		add(new GameBoard(size, speed));
+		setResizable(false);
+		pack();
+		setTitle("Snake");
+		setLocationRelativeTo(null);
+		setVisible(true);
+	}
+	
 	
 	private class b30 implements ActionListener {
 		public void actionPerformed(ActionEvent arg0) {
@@ -130,18 +137,5 @@ public class SuccessfullLogin extends JFrame implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
 			speed = 180;
 		}
-	}
-	
-	
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO add option for controls
-		add(new GameBoard(size, speed));
-		setResizable(false);
-		pack();
-		setTitle("Snake");
-		setLocationRelativeTo(null);
-		// TODO add option to play again
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setVisible(true);
 	}
 }
