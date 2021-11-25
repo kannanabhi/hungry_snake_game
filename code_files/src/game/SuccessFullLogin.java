@@ -5,6 +5,8 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -32,12 +34,22 @@ public class SuccessfullLogin extends JFrame implements ActionListener{
 		button1.addActionListener(this);
 		
 		panel.add(button1);
+		
+		JLabel board_size = new JLabel("BOARD SIZE");
+		panel.add(board_size);
 
-		JButton b30 = new JButton("30x30");
-		JButton b40 = new JButton("40x40");
-		JButton b50 = new JButton("50x50");
-		JButton b60 = new JButton("60x60");
-		JButton b70 = new JButton("70x70");
+		JRadioButton b30 = new JRadioButton("30x30", true);
+		JRadioButton b40 = new JRadioButton("40x40");
+		JRadioButton b50 = new JRadioButton("50x50");
+		JRadioButton b60 = new JRadioButton("60x60");
+		JRadioButton b70 = new JRadioButton("70x70");
+		
+		ButtonGroup group1 = new ButtonGroup();
+		group1.add(b30);
+		group1.add(b40);
+		group1.add(b50);
+		group1.add(b60);
+		group1.add(b70);
 		
 		b30.addActionListener(new b30());
 		b40.addActionListener(new b40());
@@ -51,9 +63,17 @@ public class SuccessfullLogin extends JFrame implements ActionListener{
 		panel.add(b60);
 		panel.add(b70);
 		
-		JButton moderate = new JButton("moderate");
-		JButton fast = new JButton("fast");
-		JButton slow = new JButton("slow");
+		JLabel speed_label = new JLabel("SPEED");
+		panel.add(speed_label);
+		
+		JRadioButton moderate = new JRadioButton("moderate", true);
+		JRadioButton fast = new JRadioButton("fast");
+		JRadioButton slow = new JRadioButton("slow");
+		
+		ButtonGroup group = new ButtonGroup();
+		group.add(moderate);
+		group.add(fast);
+		group.add(slow);
 		
 		panel.add(moderate);
 		panel.add(fast);
@@ -121,7 +141,7 @@ public class SuccessfullLogin extends JFrame implements ActionListener{
 		setTitle("Snake");
 		setLocationRelativeTo(null);
 		// TODO add option to play again
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 	}
 }
