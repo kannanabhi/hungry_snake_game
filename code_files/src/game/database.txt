@@ -1,4 +1,4 @@
-10 10 7
-11 11 2
-14 14 0
-cacheismahajan 11 1
+Abhi pwd 4 8 0 0 0
+Khushi helo 8 0 0 0 0
+kshah 5 0 0 0 0 0
+k k 4 0 0 1 0
