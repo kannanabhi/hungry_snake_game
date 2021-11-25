@@ -53,7 +53,7 @@ public class Leaderboard {
 			while ((line = file.readLine()) != null) {
 				String[] arr = line.split("\\s");
 				ans.add(arr[0] + "--" + arr[2] + "\n");
-				System.out.println(arr[0] + "--" + arr[2] + "\n");
+//				System.out.println(arr[0] + "--" + arr[2] + "\n");
 			}
 		} catch (Exception e) {
 			System.out.println("prob displaying file");
