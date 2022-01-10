@@ -2,7 +2,7 @@
 
 ### Introduction
 The objective of the game is to direct the snake to consume the food and try to make it grow as long as possible to maximise the score. The program is coded on java and Jframe extension is also used. 
-> The aim of this project was to use the Oops principles and write a very efficient code for the above problem statement. 
+> The aim of this project was to use the OOP principles and write a very efficient code for the above problem statement. 
 
 ## Formal Game Description
 A interactive GUI based game, with the objective that the user should collect the food items as much as possible to increase the score obtained. As more food is collected, the snake grows  in length making in harder to manuver it thus increasing the chances of hitting itself or the boundary. It invokes the players creativity to decide the most optimum path to reach the target food without losing to the constraints.
@@ -29,7 +29,7 @@ ImageIcon iih = new ImageIcon("code_files/src/game/head.png"); ``<br>
 - The initial login/signup and game is designed by GUI interface.
 
 
-### Ooop concepts used
+### OOP concepts used
 
 #### Observer Design Patterns (still pending)
 
@@ -37,8 +37,9 @@ ImageIcon iih = new ImageIcon("code_files/src/game/head.png"); ``<br>
 - An example of when the inputs would directly reflect in its dependencies: snake direction causes the snake to hit wall causing the GAME OVER GUI to be implemented, gameOver status to be changed to 'true' and the timer to be stopped.
 - The direction change might cause the snake to consume an apple and grow one in length, which in turn updates a different set of dependencies.
 
-###Bugs to be fixed
-- some bugs to be done.
+### Bugs to be fixed
+- signup does allow duplicate user names 
+- (PENDING)
 
 
 ### Forms of improvements
