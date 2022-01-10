@@ -1,6 +1,6 @@
-#The Hungry Snake
+# The Hungry Snake
 
-###Introduction
+### Introduction
 The objective of the game is to direct the snake to consume the food and try to make it grow as long as possible to maximise the score. The program is coded on java and Jframe extension is also used.
 
 ###Installation
