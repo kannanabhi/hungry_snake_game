@@ -11,7 +11,7 @@ A interactive GUI based game, with the objective that the user should collect th
 - unzip the entire project directory and open the file system in your prefered text editor
 - java.lang package must be installed on system
 - since we are using JFrame, it should be imported along with java.
-- in the GameBoard class make sure you reset the file path appropriately in following lines of code. <br>
+- in the **GameBoard** class make sure you reset the file path appropriately in following lines of code. <br>
 ``
 ImageIcon iid = new ImageIcon("code_files/src/game/dot.png"); `` <br>  ``
 ImageIcon iia = new ImageIcon("code_files/src/game/apple.png"); `` <br> ``
@@ -36,6 +36,9 @@ ImageIcon iih = new ImageIcon("code_files/src/game/head.png"); ``<br>
 - The inputs in our code include snake direction input, time instant of action and gameOver status, these are actively interacting with GameBoard. GameBoard responds to GameAdmin which in turn displays the output to GUI.
 - An example of when the inputs would directly reflect in its dependencies: snake direction causes the snake to hit wall causing the GAME OVER GUI to be implemented, gameOver status to be changed to 'true' and the timer to be stopped.
 - The direction change might cause the snake to consume an apple and grow one in length, which in turn updates a different set of dependencies.
+
+###Bugs to be fixed
+- some bugs to be done.
 
 
 ### Forms of improvements
