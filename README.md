@@ -50,3 +50,4 @@ ImageIcon iih = new ImageIcon("code_files/src/game/head.png"); ``<br>
 - Implement the comparable interface on the Player class  so that Leaderboard can return a sorted list.
 - a password checker can be implemented to check if the passwords each users use are strong enough.
 - when a new user is signing up, make sure the new userID created is not same the existing ones.
+- 
